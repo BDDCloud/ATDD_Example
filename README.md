@@ -1,3 +1,109 @@
+Features...
+
+Feature: Divide two integers
+
+Given I enter first number <first_number>
+And I enter second number <second_number>
+When I divide
+Then I see answer is <expected_answer>
+And I see first number is <expected_first_number>
+And I see second number is <expected_second_number>
+
+Examples:
+| first_number | second_number | expected_answer | expected_first_number | expected_second_number |
+| 35 | 7 | 5 | "" | "" |
+| -35 | 7 | -5 | "" | "" |
+| 35 | -7 | -5 | "" | "" |
+| -35 | -7 | 5 | "" | "" |
+| 35 | 0 | Error | "" | "" |
+
+Feature: Validation
+
+Scenario: First number blank
+Given I enter second number 7
+When I divide
+And I see validation "first number blank""
+And I see answer is ""
+And I see first number is ""
+And I see second number is 7
+
+
+Scenario: Second number blank
+Given I enter first number 35
+When I divide
+And I see validation "second number blank""
+And I see answer is ""
+And I see first number is 35
+And I see second number is ""
+
+
+Scenario: Both numbers blank
+When I divide
+And I see validation "first number blank""
+And I see validation "second number blank"
+And I see answer is ""
+And I see first number is ""
+And I see second number is ""
+
+Scenario: First number not a number
+Given I enter first number "asdf""
+And I enter second number 7
+When I divide
+And I see validation "asdf not a number"
+And I see answer is ""
+And I see first number is "asdf""
+And I see second number is 7
+
+Scenario: First number not a number
+Given I enter first number <first_number>
+And I enter second number <second_number>
+When I divide
+And I see validation <expected_validation_one>
+And I see validation <expected_validation_two>
+And I see answer is <expected_answer>
+And I see first number is <expected_first_number>
+And I see second number is <expected_second_number>
+
+
+Scenario: Second number not a number
+Given I enter first number 35
+And I enter second number "qwer""
+When I divide
+And I see validation "qwer is not a number"
+And I see answer is ""
+And I see first number is 35
+And I see second number is "qwer"
+
+Scenario: Both numbers not a number
+Given I enter first number "asdf""
+And I enter second number "qwer""
+When I divide
+And I see validation "asdf is not a number"
+And I see validation "qwer is not a number"
+And I see answer is ""
+And I see first number is "asdf"
+And I see second number is "qwer"
+
+
+Scenario: First number blank, second number not a number
+Given I enter second number "qwer""
+When I divide
+And I see validation "first number blank"
+And I see validation "qwer is not a number"
+And I see answer is ""
+And I see first number is ""
+And I see second number is "qwer"
+
+Scenario: First number not a number, second number blank
+Given I enter first number "asdf""
+When I divide
+And I see validation "asdf is not a number"
+And I see validation "second number blank"
+And I see answer is ""
+And I see first number is "asdf"
+And I see second number is ""
+
+
 Prerequisites:
 
 We will be implementing feature(s) using acceptance test driven development (ATDD). 
