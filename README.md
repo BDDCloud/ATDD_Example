@@ -126,14 +126,14 @@ If you are using C# for acceptance tests, you can reuse the existing infrastruct
 
 Use the mongoose web server. There is a copy in the tools folder. Or you can download it from: https://code.google.com/p/mongoose/
 
-tools\mongoose-free-5.2.exe
+tools\mongoose\mongoose-free-5.2.exe
 
 Usage: 
-tools\mongoose-free-5.2.exe -document_root <path_to_your_website> -listening_port <free_port>
+tools\mongoose\mongoose-free-5.2.exe -document_root <path_to_your_website> -listening_port <free_port>
 
 Example, on my machine it would be:
 open cmd.exe
-tools\mongoose-free-5.2.exe C:\Projects\ATDD_Example\Calculator.Web -listening_port 9999
+tools\mongoose\mongoose-free-5.2.exe -document_root C:\Projects\ATDD_Example\Calculator.Web -listening_port 9999
 
 To test that it works, see that this loads http://localhost:9999/index.html
 
